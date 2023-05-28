@@ -1,8 +1,6 @@
-FROM python:3.7-slim-buster
+FROM python:3-alpine3.15
 WORKDIR /app
 COPY . /app
-
-RUN apt update -y
-
-RUN apt-get update && pip install -r requirements.txt
-CMD ["python3", "app.py"]
+RUN pip install -r requirements.txt
+EXPOSE 3000
+CMD python ./app.py
